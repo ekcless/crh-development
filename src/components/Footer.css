@@ -1,0 +1,26 @@
+.footer {
+  background: var(--bg-dark);
+  padding: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  letter-spacing: 0.2px;
+}
+
+.footer a {
+  color: var(--brand-blue);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.footer a:hover {
+  color: var(--brand-blue-light);
+  opacity: 0.9;
+} 

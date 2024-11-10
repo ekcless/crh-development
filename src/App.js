@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax';
 import './App.css';
+import Navigation from './components/Navigation';
+import Hero from './components/Hero';
+import KernelDev from './components/services/KernelDev';
+import CustomSDK from './components/services/CustomSDK';
+import EnterpriseSolutions from './components/services/EnterpriseSolutions';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ParallaxProvider>
+      <div className="app">
+        <Navigation />
+        <Hero />
+        <KernelDev />
+        <CustomSDK />
+        <EnterpriseSolutions />
+        <Contact />
+        <Footer />
+      </div>
+    </ParallaxProvider>
   );
 }
 
-export default App;
+export default App; 

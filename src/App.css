@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+:root {
+  /* Primary colors */
+  --primary-dark: #000000;
+  --primary-light: #ffffff;
+  
+  /* Brand colors */
+  --brand-blue: #0077ED;
+  --brand-blue-light: #40A9FF;
+  --brand-gradient: linear-gradient(135deg, #0077ED 0%, #40A9FF 100%);
+  
+  /* Background colors */
+  --bg-dark: #0A0A0A;
+  --bg-dark-secondary: #1A1A1A;
+  --bg-gradient: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-secondary) 100%);
+  
+  /* Text colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --text-tertiary: rgba(255, 255, 255, 0.7);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.5;
 }
 
-.App-link {
-  color: #61dafb;
+/* Mobile-first responsive typography */
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+}
+
+/* Improved button styles */
+.button {
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  border-radius: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+}
+
+/* Container for consistent spacing */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 2rem);
+}
+
+/* Improved section spacing */
+section {
+  padding: clamp(3rem, 10vh, 6rem) 0;
+}
+
+.app {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Update animation to be more subtle */
+.animate-section {
+  opacity: 0.95;
+  transform: translateY(10px);
+  transition: all 0.5s ease-out;
+}
+
+.animate-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

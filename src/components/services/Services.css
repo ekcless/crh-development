@@ -1,0 +1,872 @@
+.service-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.kernel-section {
+  background: linear-gradient(to bottom, #000000, #1a1a1a);
+  color: white;
+}
+
+.sdk-section {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+.service-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.service-content.reversed {
+  direction: rtl;
+}
+
+.service-content.reversed .service-text {
+  direction: ltr;
+}
+
+.service-text h2 {
+  font-size: 48px;
+  margin-bottom: 24px;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  color: var(--text-secondary);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--brand-blue);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* Tech Diagram Animation - Remove hover effects and smooth out animation */
+.tech-diagram {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-orbit-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.circle-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: orbit 20s linear infinite;
+}
+
+/* Remove hover effects that were causing the tweak */
+.tech-diagram:hover .circle-orbit {
+  animation: orbit 20s linear infinite; /* Keep consistent speed */
+}
+
+.tech-diagram:hover .circle-core,
+.tech-diagram:hover .circle-satellite {
+  box-shadow: none; /* Remove hover effect */
+}
+
+.circle-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 30px var(--accent-color);
+}
+
+.circle-satellite {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.circle-satellite:nth-child(2) { top: 0; left: 50%; }
+.circle-satellite:nth-child(3) { bottom: 0; left: 50%; }
+.circle-satellite:nth-child(4) { left: 0; top: 50%; }
+
+/* Code Window Styling */
+.code-window {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.code-window:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.code-header {
+  background: #2d2d2d;
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.code-content {
+  padding: 20px;
+}
+
+.code-content pre {
+  margin: 0;
+}
+
+.code-content code {
+  color: #fff;
+  font-family: 'SF Mono', monospace;
+  font-size: 14px;
+}
+
+@keyframes orbit {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .service-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .service-text h2 {
+    font-size: 36px;
+  }
+  
+  .tech-diagram {
+    height: 300px;
+  }
+  
+  .circle-orbit-container {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Add these styles to the existing Services.css file */
+
+.enterprise-section {
+  background: linear-gradient(to bottom, #1a1a1a, #000000);
+  color: white;
+}
+
+.enterprise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  aspect-ratio: 1;
+  position: relative;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.enterprise-grid:hover {
+  transform: translateY(-5px);
+}
+
+.grid-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-item-content {
+  position: relative;
+  z-index: 2;
+}
+
+.grid-item-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--brand-blue);
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.grid-item.active {
+  background: rgba(0, 119, 237, 0.1);
+}
+
+.grid-item.active .grid-item-dot {
+  opacity: 1;
+  transform: scale(1.5);
+  box-shadow: 0 0 20px rgba(0, 119, 237, 0.5);
+}
+
+.grid-item:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 119, 237, 0.15);
+}
+
+.grid-item:hover .grid-item-dot {
+  opacity: 1;
+  transform: scale(1.8);
+  box-shadow: 0 0 30px rgba(0, 119, 237, 0.8);
+}
+
+/* Update the existing media query */
+@media (max-width: 768px) {
+  .service-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .service-text h2 {
+    font-size: 36px;
+  }
+  
+  .tech-diagram {
+    height: 300px;
+  }
+  
+  .circle-orbit-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .enterprise-grid {
+    gap: 10px;
+  }
+}
+
+/* Add to existing Services.css */
+
+.service-header {
+  margin-bottom: 2rem;
+}
+
+.service-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 119, 237, 0.1);
+  color: var(--brand-blue);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.service-tag:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 119, 237, 0.2);
+}
+
+.service-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.feature-group h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.feature-list li {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  padding: 8px 16px 8px 24px;
+  border-radius: 8px;
+}
+
+.feature-list li:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(5px);
+}
+
+.feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--brand-blue);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.service-stats, .sdk-metrics {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.stat-item, .metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.stat-item:hover, .metric:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.metric-circle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.metric-circle svg {
+  transform: rotate(-90deg);
+}
+
+.metric-circle span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.code-content {
+  padding: 1.5rem;
+  background: #1a1a1a;
+}
+
+.code-content code {
+  color: #e4e4e4;
+  font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .service-features {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-stats, .sdk-metrics {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .stat-item, .metric {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .service-section {
+    padding: 60px 20px;
+    min-height: auto;
+  }
+
+  .service-content {
+    gap: 40px;
+  }
+
+  .service-features {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-stats, .sdk-metrics {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-section {
+    padding: 40px 16px;
+  }
+
+  .service-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .service-content.reversed {
+    direction: ltr;
+  }
+
+  .service-text {
+    order: 1;
+  }
+
+  .service-visual {
+    order: 2;
+  }
+
+  .service-text h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .service-description {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .service-features {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature-group h3 {
+    text-align: center;
+  }
+
+  .tech-diagram {
+    height: 250px;
+  }
+
+  .circle-orbit-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .enterprise-grid {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .grid-item-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .code-window {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .code-content {
+    padding: 12px;
+    font-size: 12px;
+    overflow-x: auto;
+  }
+
+  .service-stats, .sdk-metrics {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .stat-item, .metric {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-section {
+    padding: 30px 12px;
+  }
+
+  .service-text h2 {
+    font-size: 28px;
+  }
+
+  .service-description {
+    font-size: 14px;
+  }
+
+  .feature-list li {
+    font-size: 14px;
+    padding-left: 1rem;
+  }
+
+  .feature-list li::before {
+    width: 4px;
+    height: 4px;
+  }
+
+  .tech-diagram {
+    height: 200px;
+  }
+
+  .circle-orbit-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+.service-visual {
+  width: 100%;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.service-visual:hover {
+  transform: translateY(-5px);
+}
+
+/* Ensure code snippets don't cause horizontal scroll */
+.code-content pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Improve touch targets on mobile */
+.feature-list li {
+  padding: 8px 0 8px 1.25rem;
+}
+
+/* Add smooth transitions for better mobile experience */
+.service-content > * {
+  transition: all 0.3s ease-out;
+}
+
+/* Network Visualization */
+.network-visualization {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.network-nodes {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+}
+
+.main-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: var(--brand-blue);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 30px rgba(0, 119, 237, 0.5);
+}
+
+.node-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 119, 237, 0.3);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.network-connections {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.connection-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(0, 119, 237, 0.8),
+    rgba(0, 119, 237, 0.2)
+  );
+  transform-origin: left center;
+}
+
+.connection-line:nth-child(1) { transform: rotate(0deg); }
+.connection-line:nth-child(2) { transform: rotate(60deg); }
+.connection-line:nth-child(3) { transform: rotate(120deg); }
+.connection-line:nth-child(4) { transform: rotate(180deg); }
+.connection-line:nth-child(5) { transform: rotate(240deg); }
+.connection-line:nth-child(6) { transform: rotate(300deg); }
+
+.data-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--brand-blue);
+  border-radius: 50%;
+  animation: moveParticle 3s infinite;
+}
+
+.endpoint-node {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.endpoint-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: endpointPulse 2s infinite;
+}
+
+.node-0 { transform: translate(150px, 0); }
+.node-1 { transform: translate(75px, 130px); }
+.node-2 { transform: translate(-75px, 130px); }
+.node-3 { transform: translate(-150px, 0); }
+.node-4 { transform: translate(-75px, -130px); }
+.node-5 { transform: translate(75px, -130px); }
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}
+
+@keyframes endpointPulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+@keyframes moveParticle {
+  0% { left: 0%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .network-visualization {
+    height: 300px;
+  }
+
+  .network-nodes {
+    width: 240px;
+    height: 240px;
+  }
+
+  .main-node {
+    width: 30px;
+    height: 30px;
+  }
+
+  .endpoint-node {
+    width: 15px;
+    height: 15px;
+  }
+
+  .connection-line {
+    width: 120px;
+  }
+}
+
+/* Enterprise Cube Visualization */
+.cube-container {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.cube {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 20s infinite linear;
+  margin: auto;
+}
+
+.cube-face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(0, 119, 237, 0.1);
+  border: 2px solid rgba(0, 119, 237, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 50px rgba(0, 119, 237, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.front  { transform: rotateY(0deg) translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.right  { transform: rotateY(90deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.top    { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+.cube-shadow {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 50px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 119, 237, 0.2) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  animation: shadowPulse 4s infinite ease-in-out;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateX(-20deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-20deg) rotateY(360deg);
+  }
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 0.1;
+  }
+}
+
+/* Update mobile responsiveness */
+@media (max-width: 768px) {
+  .cube-container {
+    width: 240px;
+    height: 340px;
+    padding-top: 40px;
+  }
+
+  .cube {
+    width: 160px;
+    height: 160px;
+  }
+}
